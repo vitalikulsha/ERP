@@ -16,8 +16,9 @@ public class PlanController {
     private final PlanService planService;
 
     @GetMapping("/")
-    public String getPlanes(@RequestParam(name = "customer", required = false) String customer, Model model) {
-        model.addAttribute("planes", planService.listPlanes(customer));
+    public String getPlanes(@RequestParam(name = "cylinderNumber", required = false) String cylinderNumber,
+                            Model model) {
+        model.addAttribute("planes", planService.getListPlanes(cylinderNumber));
         return "plan";
     }
 
@@ -28,7 +29,7 @@ public class PlanController {
     }
 
     @PostMapping("/plan/create")
-    public String createPlan(Plan plan){
+    public String createPlan(Plan plan) {
         planService.addCylinderToPlan(plan);
         return "redirect:/";
     }

@@ -4,19 +4,24 @@
     <title>ERP</title>
 </head>
 <body>
-<h1>ERP</h1>
-<hr>
-<h4>Подробная информация о гидроцилиндре ${cylinder.number}</h4>
-<a href="/drawings/${drawing.id}">Подробнее</a>
-<!--<#list images as img>-->
-<!--<img src="/images/${img.id}" height="60px"/><br><br>-->
-<!--</#list>-->
-<b>Номер гидроцилиндра: </b>${cylinder.number}<br>
-<b>Название: </b>${cylinder.name}<br>
-<b>Список деталей:</b><br>
-    <hr>
-    <form action="/cylinder/delete/${cylinder.id}" method="post">
-        <input type="submit" value="Удалить гидроцилиндр"/>
-    </form>
+<h1>ERP</h1><hr>
+<h2>Карта гидроцилиндра ${cylinder.number}</h4>
+<table>
+    <tr>
+        <th>Обозначение</th>
+        <th>Название</th>
+        <th>Количество</th>
+    </tr>
+<#list cylinderParts as part>
+    <tr>
+        <td>${part.number}</td>
+        <td>${part.name}</td>
+        <td>${part.quantity}</td>
+    </tr>
+    <#else>
+    <h3>Ничего нет</h3>
+</#list>
+</table>
+
 </body>
 </html>

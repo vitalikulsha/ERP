@@ -7,7 +7,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
 import java.util.List;
 
 @Service
@@ -17,8 +16,8 @@ import java.util.List;
 public class PlanService {
     private final PlanRepository planRepository;
 
-    public List<Plan> listPlanes (String customer){
-        if(customer!=null) return planRepository.findByCustomer(customer);
+    public List<Plan> getListPlanes(String cylinderNumber){
+        if(cylinderNumber!=null) return planRepository.findByCylinderNumber(cylinderNumber);
         return planRepository.findAll();
     }
 

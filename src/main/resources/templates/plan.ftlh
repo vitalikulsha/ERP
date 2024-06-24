@@ -7,7 +7,7 @@
 <h1>ERP</h1><hr>
 <h4>План производства</h4>
 <form action="/" method="get">
-    Поиск по номер гидроцилиндра: <input type="text" name="number"><br>
+    Поиск по номеру ГЦ: <input type="text" name="cylinderNumber"><br>
     <input type="submit" value="Поиск"/>
 </form>
 <table>
@@ -15,17 +15,26 @@
         <th>Номер заказа</th>
         <th>Заказчик</th>
         <th>Номер гидроцилиндра</th>
-        <th>Кол.</th>
+        <th>Количество</th>
+        <th>Дата отгрузки</th>
         <th>Ссылка</th>
+        <th>Удалить</th>
     </tr>
 <#list planes as plan>
+
     <tr>
         <td>${plan.orderNumber}</td>
         <td>${plan.customer}</td>
         <td>${plan.cylinderNumber}</td>
         <td>${plan.quantity}</td>
-        <td><a href="/plan/${plan.id}">Подробнее</a></td>
+        <td>${plan.shippingDate}</td>
+        <td><a href="/cylinder/${plan.cylinderNumber}">Подробнее</a></td>
+        <td><form action="/plan/delete/${plan.id}" method="post">
+                <input type="submit" value="Удалить "/>
+            </form>
+        </td>
     </tr>
+
     <#else>
     <h3>Ничего нет</h3>
 </#list>
@@ -37,6 +46,7 @@
     Заказчик: <input type="text" name="customer"/><br><br>
     Обозначение гидроцилиндра: <input type="text" name="cylinderNumber"/><br><br>
     Количество в плане: <input type="number" name="quantity"/><br><br>
+    Дата отгрузки: <input type="date" name="shippingDate"/><br><br>
     <input type="submit" value="Добавить ГЦ в план"/>
 </form>
 </body>

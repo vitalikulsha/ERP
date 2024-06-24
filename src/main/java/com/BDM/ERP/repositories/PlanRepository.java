@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface PlanRepository extends JpaRepository<Plan, Long> {
     List<Plan> findByCustomer(String customer);
+    List<Plan> findByCylinderNumber (String cylinderNumber);
 }

@@ -6,28 +6,26 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "planes")
+@Table(name = "cylinderParts")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Plan {
+public class CylinderPart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "orderNumber")
-    private String orderNumber;
+    @Column(name = "number")
+    private String number;
 
-    @Column(name = "customer")
-    private String customer;
-
-    @Column(name = "cylinderNumber")
-    private String cylinderNumber;
+    @Column(name = "name")
+    private String name;
 
     @Column(name = "quantity")
     private int quantity;
 
-    @Column(name = "shippingDate")
-    private String shippingDate;
+    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
+    @JoinColumn(name = "cylinder_id")
+    private HydraulicCylinder cylinder;
 }

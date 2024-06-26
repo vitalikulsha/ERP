@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>ERP</title>
 </head>
 <body>
@@ -15,13 +17,14 @@
     <tr>
         <th>Номер гидроцилиндра</th>
         <th>Наименование</th>
-        <th>Ссылка</th>
+        <th>Чертеж</th>
     </tr>
     <#list cylinders as cylinder>
     <tr>
         <td>${cylinder.number}</td>
         <td>${cylinder.name}</td>
-        <td><a href="/cylinder/${cylinder.number}">Подробнее</a></td>
+        <td><a href="file:///d:/SCAN_DRW/${cylinder.number}.pdf" target="_blank">Подробнее</a></td>
+<!--        <td><a href="/cylinder/${cylinder.number}">Подробнее</a></td>-->
     </tr>
     <#else>
     <h3>Ничего нет</h3>
@@ -29,9 +32,10 @@
 </table>
 <hr>
 <h3>Добавить гидроцилиндр в базу данных</h3>
-<form action="/cylinder/create" method="post">
+<form method="post" enctype="multipart/form-data">
     Номер гидроцилиндра: <input type="text" name="number"/><br><br>
     Наименование гидроцилиндра: <input type="text" name="name"/><br><br>
+    Загрузить чертеж: <input type="file" name="file">
     <h4>Список деталей:</h4>
     <table>
         <tr>

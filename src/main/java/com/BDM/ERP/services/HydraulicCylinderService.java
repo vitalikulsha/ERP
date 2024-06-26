@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -27,7 +26,7 @@ public class HydraulicCylinderService {
         return new HydraulicCylinder();
     }
 
-    public void addCylinder(HydraulicCylinder cylinder, String... params) {
+    public void addCylinder(HydraulicCylinder cylinder, String[] params) {
         log.info("Add new cylinder to DB: {}", cylinder);
         for (int i = 0; i < params.length; i = i + 3) {
             if (params[i] != null) {

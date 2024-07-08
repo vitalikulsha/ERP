@@ -18,19 +18,12 @@
         <th>Дата отгрузки</th>
     </tr>
     <tr>
-        <td>${plan.orderNumber}</td>
-        <td>${plan.customer}</td>
-        <td>${plan.cylinderNumber}</td>
-        <td>${plan.quantity}</td>
-        <td>${plan.shippingDate}</td>
-    </tr>
-    <tr>
         <form action="/plan/edit/${plan.id}" method="post">
-            <td><input type="text" name="orderNumber"/></td>
-            <td><input type="text" name="customer"/></td>
-            <td><input type="text" name="cylinderNumber"/></td>
-            <td><input type="number" name="quantity"/></td>
-            <td><input type="date" name="shippingDate"/></td>
+            <td><input type="text" name="orderNumber" value="${plan.orderNumber}"/></td>
+            <td><input type="text" name="customer" value="${plan.customer}"/></td>
+            <td><input type="text" name="cylinderNumber" value="${plan.cylinderNumber}"/></td>
+            <td><input type="number" name="quantity" value="${plan.quantity}"/></td>
+            <td><input type="date" name="shippingDate" value="${plan.shippingDate}"/></td>
             <td><input type="submit" value="Изменить"/></td>
         </form>
     </tr>

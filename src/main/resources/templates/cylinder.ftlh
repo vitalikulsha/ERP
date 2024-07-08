@@ -23,7 +23,8 @@
     <tr>
         <td>${cylinder.number}</td>
         <td>${cylinder.name}</td>
-        <td><a href="file:///d:/SCAN_DRW/${cylinder.number}.pdf" target="_blank">Подробнее</a></td>
+<!--        <td><a href="file:///192.168.1.230/склад баз/ERP/Чертежи/${cylinder.number}.pdf" target="_blank">Подробнее</a></td>-->
+        <td><a href="data/${cylinder.number}.pdf" target="_blank">Подробнее</a></td>
 <!--        <td><a href="/cylinder/${cylinder.number}">Подробнее</a></td>-->
     </tr>
     <#else>

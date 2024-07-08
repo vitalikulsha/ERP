@@ -22,12 +22,6 @@ public class PlanController {
         return "plan";
     }
 
-    @GetMapping("/plan/{id}")
-    public String planInfo(@PathVariable Long id, Model model) {
-        model.addAttribute("plan", planService.getPlanById(id));
-        return "plan-info";
-    }
-
     @PostMapping("/plan/create")
     public String createPlan(Plan plan) {
         planService.addCylinderToPlan(plan);
@@ -37,6 +31,19 @@ public class PlanController {
     @PostMapping("/plan/delete/{id}")
     public String deletePlan(@PathVariable Long id) {
         planService.removeCylinderFromPlan(id);
+        return "redirect:/";
+    }
+
+    @GetMapping("/plan/edit/{id}")
+    public String getPlanForEdit(@PathVariable Long id, Model model){
+        Plan plan = planService.getPlanById(id);
+        model.addAttribute("plan", plan);
+        return "edit-plan";
+    }
+
+    @PostMapping("/plan/edit/{id}")
+    public String editPlan(@PathVariable Long id, Plan plan){
+        planService.editPlan(id, plan);
         return "redirect:/";
     }
 }

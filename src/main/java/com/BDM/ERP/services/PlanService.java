@@ -33,4 +33,9 @@ public class PlanService {
     public Plan getPlanById (Long id){
         return planRepository.findById(id).orElse(null);
     }
+
+    public void editPlan(Long id, Plan plan){
+        plan.setId(id);
+        planRepository.save(plan);
+    }
 }

@@ -25,11 +25,7 @@ public class HydraulicCylinder {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "cylinder")
+    @ElementCollection
     private List<CylinderPart> cylinderParts = new ArrayList<>();
 
-    public void addPartToCylinder(CylinderPart part) {
-        part.setCylinder(this);
-        cylinderParts.add(part);
-    }
 }

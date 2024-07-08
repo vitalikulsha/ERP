@@ -7,11 +7,32 @@
 </head>
 <body>
 <h1>ERP</h1><hr>
-<h4>План производства</h4>
+<h2>План производства</h2>
 <form action="/" method="get">
-    Поиск по номеру ГЦ: <input type="text" name="cylinderNumber"><br>
-    <input type="submit" value="Поиск"/>
+    Поиск по номеру ГЦ: <input type="text" name="cylinderNumber"><input type="submit" value="Поиск"/>
 </form>
+<hr>
+<h3>Добавить гидроцилиндр в план производства</h3>
+<form action="/plan/create" method="post">
+    <table>
+        <tr>
+            <th>Номер заказа</th>
+            <th>Заказчик</th>
+            <th>Обозначение ГЦ</th>
+            <th>Количество в плане</th>
+            <th>Дата отгрузки</th>
+        </tr>
+        <tr>
+            <td><input type="text" name="orderNumber"/></td>
+            <td><input type="text" name="customer"/></td>
+            <td><input type="text" name="cylinderNumber"/></td>
+            <td><input type="number" name="quantity"/></td>
+            <td><input type="date" name="shippingDate"/></td>
+        </tr>
+    </table>
+    <input type="submit" value="Добавить ГЦ в план"/>
+</form>
+<hr>
 <table>
     <tr>
         <th>Номер заказа</th>
@@ -19,37 +40,24 @@
         <th>Номер гидроцилиндра</th>
         <th>Количество</th>
         <th>Дата отгрузки</th>
-        <th>Ссылка</th>
-        <th>Удалить</th>
+        <th>Действие</th>
     </tr>
 <#list planes as plan>
-
     <tr>
         <td>${plan.orderNumber}</td>
         <td>${plan.customer}</td>
-        <td>${plan.cylinderNumber}</td>
+        <td><a href="/plan/${plan.id}">${plan.cylinderNumber}</a></td>
         <td>${plan.quantity}</td>
         <td>${plan.shippingDate}</td>
-        <td><a href="/cylinder/${plan.cylinderNumber}">Подробнее</a></td>
         <td><form action="/plan/delete/${plan.id}" method="post">
                 <input type="submit" value="Удалить "/>
             </form>
+            <a href="/plan/edit/${plan.id}">Редактировать</a>
         </td>
     </tr>
-
     <#else>
     <h3>Ничего нет</h3>
 </#list>
 </table>
-<hr>
-<h3>Добавить гидроцилиндр в план производства</h3>
-<form action="/plan/create" method="post">
-    Номер заказа: <input type="text" name="orderNumber"/><br><br>
-    Заказчик: <input type="text" name="customer"/><br><br>
-    Обозначение гидроцилиндра: <input type="text" name="cylinderNumber"/><br><br>
-    Количество в плане: <input type="number" name="quantity"/><br><br>
-    Дата отгрузки: <input type="date" name="shippingDate"/><br><br>
-    <input type="submit" value="Добавить ГЦ в план"/>
-</form>
 </body>
 </html>

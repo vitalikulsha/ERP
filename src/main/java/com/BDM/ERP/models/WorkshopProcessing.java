@@ -16,14 +16,17 @@ public class WorkshopProcessing {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "date")
-    private String date;
-
-    @Column(name = "workShift")
-    private int workShift;
+//    @Column(name = "date")
+//    private String date;
+//
+//    @Column(name = "workShift")
+//    private int workShift;
 
     @Column(name = "partNumber")
     private String partNumber;
+
+    @Column(name = "input")
+    private String input;
 
     @Column(name = "turning1")
     private int turning1;

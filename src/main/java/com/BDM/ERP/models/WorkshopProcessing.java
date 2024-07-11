@@ -26,7 +26,7 @@ public class WorkshopProcessing {
     private String partNumber;
 
     @Column(name = "input")
-    private String input;
+    private int input;
 
     @Column(name = "turning1")
     private int turning1;

@@ -19,9 +19,9 @@
     </tr>
     <tr>
         <form action="/plan/edit/${plan.id}" method="post">
-            <td><input type="text" name="orderNumber" value="${plan.orderNumber}"/></td>
-            <td><input type="text" name="customer" value="${plan.customer}"/></td>
-            <td><input type="text" name="cylinderNumber" value="${plan.cylinderNumber}"/></td>
+            <td><input type="text" name="orderNumber" value="${plan.orderNumber}" readonly disabled /></td>
+            <td><input type="text" name="customer" value="${plan.customer}" readonly disabled /></td>
+            <td><input type="text" name="cylinderNumber" value="${plan.cylinderNumber}" readonly disabled /></td>
             <td><input type="number" name="quantity" value="${plan.quantity}"/></td>
             <td><input type="date" name="shippingDate" value="${plan.shippingDate}"/></td>
             <td><input type="submit" value="Изменить"/></td>

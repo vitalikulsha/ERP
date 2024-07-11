@@ -20,7 +20,16 @@ public class WorkshopProcessingService {
         return processingRepository.findAll();
     }
 
-    public void removePartFromMachining(Long id){
+    public void removePartFromMachining(Long id) {
         processingRepository.deleteById(id);
+    }
+
+    public void editPart(Long id, WorkshopProcessing part) {
+        part.setId(id);
+        processingRepository.save(part);
+    }
+
+    public WorkshopProcessing getPartById(Long id){
+        return processingRepository.findById(id).orElse(null);
     }
 }

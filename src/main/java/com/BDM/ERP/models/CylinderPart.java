@@ -36,6 +36,17 @@ public class CylinderPart {
     @ElementCollection
     private List<WorkshopProcessing> processes;
 
+    @ElementCollection
+    private List<WorkshopWorkpiece> workpieces;
+
+    public int sumSaw() {
+        int sum = 0;
+        for (WorkshopWorkpiece workpiece : workpieces) {
+            sum += workpiece.getSaw();
+        }
+        return sum;
+    }
+
     public int sumTurning1() {
         int sum = 0;
         for (WorkshopProcessing process : processes) {

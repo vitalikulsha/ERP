@@ -16,6 +16,7 @@
         <th>Название</th>
         <th>Кол. в ГЦ</th>
         <th>Кол. по плану</th>
+        <th>Пила</th>
         <th>Ток 1</th>
         <th>Ток 2</th>
         <th>Ток 3</th>
@@ -28,6 +29,7 @@
         <td>${part.name}</td>
         <td>${part.quantity}</td>
         <td>${part.quantity*cylinderPlan}</td>
+        <td>${part.sumSaw()}</td>
         <td>${part.sumTurning1()}</td>
         <td>${part.sumTurning2()}</td>
         <td>${part.sumTurning3()}</td>

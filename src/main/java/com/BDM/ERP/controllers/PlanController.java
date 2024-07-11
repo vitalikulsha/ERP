@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class PlanController {
     private final PlanService planService;
 
-    @GetMapping("/")
+    @GetMapping("/plan")
     public String getPlanes(@RequestParam(name = "cylinderNumber", required = false) String cylinderNumber,
                             Model model) {
         model.addAttribute("planes", planService.getListPlanes(cylinderNumber));

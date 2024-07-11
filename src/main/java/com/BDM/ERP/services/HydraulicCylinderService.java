@@ -3,10 +3,7 @@ package com.BDM.ERP.services;
 import com.BDM.ERP.models.CylinderPart;
 import com.BDM.ERP.models.HydraulicCylinder;
 import com.BDM.ERP.models.WorkshopProcessing;
-import com.BDM.ERP.repositories.CylinderPartRepository;
-import com.BDM.ERP.repositories.HydraulicCylinderRepository;
-import com.BDM.ERP.repositories.PlanRepository;
-import com.BDM.ERP.repositories.WorkshopProcessingRepository;
+import com.BDM.ERP.repositories.*;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -22,6 +19,7 @@ public class HydraulicCylinderService {
     private final HydraulicCylinderRepository cylinderRepository;
     private final CylinderPartRepository partRepository;
     private final WorkshopProcessingRepository processingRepository;
+    private final WorkshopWorkpieceRepository workpieceRepository;
 
     public List<HydraulicCylinder> getAllCylinder() {
         List<HydraulicCylinder> cylinders = cylinderRepository.findAll();
@@ -37,6 +35,7 @@ public class HydraulicCylinderService {
             List<CylinderPart> parts = partRepository.findByApplicability(cylinder.getNumber());
             for (CylinderPart part : parts) {
                 part.setProcesses(processingRepository.findByPartNumber(part.getNumber()));
+                part.setWorkpieces(workpieceRepository.findByPartNumber(part.getNumber()));
             }
             cylinder.setCylinderParts(parts);
             return cylinder;

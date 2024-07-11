@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface WorkshopProcessingRepository extends JpaRepository<WorkshopProcessing, Long> {
-    List<WorkshopProcessing> findByPartNumber(String partNumber);
+    List <WorkshopProcessing> findByPartNumber(String partNumber);
 }

@@ -22,11 +22,11 @@
         </tr>
         <tr>
             <td><input type="text" name="partNumber"/></td>
-            <td><input type="text" name="turning1"/></td>
-            <td><input type="text" name="turning2"/></td>
+            <td><input type="number" name="turning1"/></td>
+            <td><input type="number" name="turning2"/></td>
             <td><input type="number" name="turning3"/></td>
-            <td><input type="date" name="drilling"/></td>
-            <td><input type="date" name="milling"/></td>
+            <td><input type="number" name="drilling"/></td>
+            <td><input type="number" name="milling"/></td>
         </tr>
     </table>
     <input type="submit" value="Добавить"/>
@@ -43,19 +43,19 @@
         <th>Фрезер</th>
         <th>Действие</th>
     </tr>
-<#list mexobrabotka as mexobrabotka>
+<#list parts as part>
     <tr>
-        <td>${mexobrabotka.partNumber}</td>
-        <td>${mexobrabotka.input}</td>
-        <td>${mexobrabotka.turning1}</td>
-        <td>${mexobrabotka.turning2}</td>
-        <td>${mexobrabotka.turning3}</td>
-        <td>${mexobrabotka.drilling}</td>
-        <td>${mexobrabotka.milling}</td>
-        <td><form action="/workshop/mexobrabotka/delete/${mexobrabotka.id}" method="post">
+        <td>${part.partNumber}</td>
+        <td>${part.input}</td>
+        <td>${part.turning1}</td>
+        <td>${part.turning2}</td>
+        <td>${part.turning3}</td>
+        <td>${part.drilling}</td>
+        <td>${part.milling}</td>
+        <td><form action="/workshop/mexobrabotka/delete/${part.id}" method="post">
                 <input type="submit" value="Удалить "/>
             </form>
-            <a href="/workshop/mexobrabotka/edit/${mexobrabotka.id}">Редактировать</a>
+            <a href="/workshop/mexobrabotka/edit/${part.id}">Редактировать</a>
         </td>
     </tr>
     <#else>

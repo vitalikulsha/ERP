@@ -39,6 +39,9 @@ public class CylinderPart {
     @ElementCollection
     private List<WorkshopWorkpiece> workpieces;
 
+    @ElementCollection
+    private List<WorkshopWelding> weldings;
+
     public int sumSaw() {
         int sum = 0;
         for (WorkshopWorkpiece workpiece : workpieces) {
@@ -87,4 +90,27 @@ public class CylinderPart {
         return sum;
     }
 
+    public int sumWelding1() {
+        int sum = 0;
+        for (WorkshopWelding welding : weldings) {
+            sum += welding.getWelding1();
+        }
+        return sum;
+    }
+
+    public int sumWelding2() {
+        int sum = 0;
+        for (WorkshopWelding welding : weldings) {
+            sum += welding.getWelding2();
+        }
+        return sum;
+    }
+
+    public int sumCleaning() {
+        int sum = 0;
+        for (WorkshopWelding welding : weldings) {
+            sum += welding.getCleaning();
+        }
+        return sum;
+    }
 }

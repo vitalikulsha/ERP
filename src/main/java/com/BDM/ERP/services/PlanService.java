@@ -35,7 +35,11 @@ public class PlanService {
     }
 
     public void editPlan(Long id, Plan plan){
+        Plan planFromDB = planRepository.findById(id).orElse(null);
         plan.setId(id);
+        plan.setOrderNumber(planFromDB.getOrderNumber());
+        plan.setCustomer(planFromDB.getCustomer());
+        plan.setCylinderNumber(planFromDB.getCylinderNumber());
         planRepository.save(plan);
     }
 }

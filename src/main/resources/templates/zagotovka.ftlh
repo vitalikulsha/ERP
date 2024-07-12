@@ -9,7 +9,7 @@
 <h1>ERP</h1><hr>
 <h2>Заготовительный участок</h2>
 <hr>
-<h3>Добавить отрезанные заготовки</h3>
+<h3>Добавить детали в производство</h3>
 <form action="/workshop/zagotovka/create" method="post">
     <table>
         <tr>
@@ -29,7 +29,7 @@
 <table>
     <tr>
         <th>Номер детали</th>
-        <th>Приход</th>
+        <th>Заявка</th>
         <th>Пила</th>
         <th>Действия</th>
     </tr>
@@ -45,6 +45,7 @@
             <form action="/workshop/zagotovka/send-all/${workpiece.id}" method="post">
                 <input type="submit" value="Отправить всё в ЦМО "/>
             </form>
+            <a href="/workshop/zagotovka/send/${workpiece.id}">Отправить часть в ЦМО</a><br>
             <a href="/workshop/zagotovka/edit/${workpiece.id}">Редактировать</a>
         </td>
     </tr>

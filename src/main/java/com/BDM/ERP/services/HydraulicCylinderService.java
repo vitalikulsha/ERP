@@ -20,6 +20,7 @@ public class HydraulicCylinderService {
     private final CylinderPartRepository partRepository;
     private final WorkshopProcessingRepository processingRepository;
     private final WorkshopWorkpieceRepository workpieceRepository;
+    private final WorkshopWeldingRepository weldingRepository;
 
     public List<HydraulicCylinder> getAllCylinder() {
         List<HydraulicCylinder> cylinders = cylinderRepository.findAll();
@@ -36,6 +37,7 @@ public class HydraulicCylinderService {
             for (CylinderPart part : parts) {
                 part.setProcesses(processingRepository.findByPartNumber(part.getNumber()));
                 part.setWorkpieces(workpieceRepository.findByPartNumber(part.getNumber()));
+                part.setWeldings(weldingRepository.findByPartNumber(part.getNumber()));
             }
             cylinder.setCylinderParts(parts);
             return cylinder;

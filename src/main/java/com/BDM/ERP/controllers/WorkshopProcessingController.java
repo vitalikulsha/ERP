@@ -35,8 +35,14 @@ public class WorkshopProcessingController {
     }
 
     @PostMapping("/workshop/mexobrabotka/edit/{id}")
-    public String editPlan(@PathVariable Long id, WorkshopProcessing part){
+    public String editPart(@PathVariable Long id, WorkshopProcessing part){
         processingService.editPart(id, part);
+        return "redirect:/workshop/mexobrabotka";
+    }
+
+    @PostMapping("/workshop/mexobrabotka/create")
+    public String createPartToProcessing(WorkshopProcessing part){
+        processingService.addPartToWorkshopProcessing(part);
         return "redirect:/workshop/mexobrabotka";
     }
 }

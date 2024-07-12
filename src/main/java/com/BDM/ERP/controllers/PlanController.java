@@ -44,6 +44,6 @@ public class PlanController {
     @PostMapping("/plan/edit/{id}")
     public String editPlan(@PathVariable Long id, Plan plan){
         planService.editPlan(id, plan);
-        return "redirect:/";
+        return "redirect:/plan";
     }
 }

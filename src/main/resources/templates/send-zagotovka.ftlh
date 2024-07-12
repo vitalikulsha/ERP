@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>ERP</h1><hr>
-<h2>Редактирование заготовительной операции</h2>
+<h2>Отправить часть деталей в ЦМО</h2>
 <hr>
 <table>
     <tr>
@@ -16,11 +16,11 @@
         <th>Пила</th>
     </tr>
     <tr>
-        <form action="/workshop/zagotovka/edit/${part.id}" method="post">
+        <form action="/workshop/zagotovka/send/${part.id}" method="post">
             <td>${part.partNumber}</td>
-            <td><input type="number" name="input" value="${part.input}"/></td>
+            <td>${part.input}</td>
             <td><input type="number" name="saw" value="${part.saw}"/></td>
-            <td><input type="submit" value="Изменить"/></td>
+            <td><input type="submit" value="Отправить"/></td>
         </form>
     </tr>
 </table>

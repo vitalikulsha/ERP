@@ -12,7 +12,7 @@
 <table>
     <tr>
         <th>Номер детали</th>
-        <th>Приход</th>
+        <th>Заявка</th>
         <th>Ток 1</th>
         <th>Ток 2</th>
         <th>Ток 3</th>
@@ -21,8 +21,8 @@
     </tr>
     <tr>
         <form action="/workshop/mexobrabotka/edit/${part.id}" method="post">
-            <td><input type="text" name="partNumber" value="${part.partNumber}" readonly disabled /></td>
-            <td><input type="number" name="input" value="${part.input}" readonly disabled /></td>
+            <td>${part.partNumber}</td>
+            <td>${part.input}</td>
             <td><input type="number" name="turning1" value="${part.turning1}"/></td>
             <td><input type="number" name="turning2" value="${part.turning2}"/></td>
             <td><input type="number" name="turning3" value="${part.turning3}"/></td>

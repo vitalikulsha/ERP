@@ -28,7 +28,9 @@ public class WorkshopWorkpieceService {
     }
 
     public void editPart(Long id, WorkshopWorkpiece part) {
+        WorkshopWorkpiece partFromDB = workpieceRepository.findById(id).orElse(null);
         part.setId(id);
+        part.setPartNumber(partFromDB.getPartNumber());
         workpieceRepository.save(part);
     }
 
@@ -47,5 +49,19 @@ public class WorkshopWorkpieceService {
         part.setPartNumber(workpiece.getPartNumber());
         processingRepository.save(part);
         workpieceRepository.deleteById(id);
+    }
+
+    public void sendPartsToWorkshopProcessing(Long id, Integer quantity){
+        WorkshopWorkpiece workpiece = workpieceRepository.findById(id).orElse(null);
+        if(quantity == workpiece.getSaw()){
+            sendAllToWorkshopProcessing(id);
+            return;
+        }
+        workpiece.setSaw(workpiece.getSaw()-quantity);
+        WorkshopProcessing part = new WorkshopProcessing();
+        part.setInput(quantity);
+        part.setPartNumber(workpiece.getPartNumber());
+        processingRepository.save(part);
+        workpieceRepository.save(workpiece);
     }
 }

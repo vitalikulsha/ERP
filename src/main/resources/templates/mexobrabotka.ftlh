@@ -9,11 +9,12 @@
 <h1>ERP</h1><hr>
 <h2>Участок мехобработки</h2>
 <hr>
-<h3>Добавить обработанные детали</h3>
+<h3>Добавить детали в производство</h3>
 <form action="/workshop/mexobrabotka/create" method="post">
     <table>
         <tr>
             <th>Номер детали</th>
+            <th>Заявка</th>
             <th>Ток 1</th>
             <th>Ток 2</th>
             <th>Ток 3</th>
@@ -22,6 +23,7 @@
         </tr>
         <tr>
             <td><input type="text" name="partNumber"/></td>
+            <td><input type="number" name="input"/></td>
             <td><input type="number" name="turning1"/></td>
             <td><input type="number" name="turning2"/></td>
             <td><input type="number" name="turning3"/></td>
@@ -35,7 +37,7 @@
 <table>
     <tr>
         <th>Номер детали</th>
-        <th>Приход</th>
+        <th>Заявка</th>
         <th>Ток 1</th>
         <th>Ток 2</th>
         <th>Ток 3</th>

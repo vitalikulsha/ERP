@@ -22,6 +22,9 @@
         <th>Ток 3</th>
         <th>Сверл</th>
         <th>Фрез</th>
+        <th>Сварка 1</th>
+        <th>Сварка 2</th>
+        <th>Зачистка</th>
     </tr>
 <#list cylinderParts as part>
     <tr>
@@ -35,6 +38,9 @@
         <td>${part.sumTurning3()}</td>
         <td>${part.sumDrilling()}</td>
         <td>${part.sumMilling()}</td>
+        <td>${part.sumWelding1()}</td>
+        <td>${part.sumWelding2()}</td>
+        <td>${part.sumCleaning()}</td>
     </tr>
     <#else>
     <h3>Ничего нет</h3>

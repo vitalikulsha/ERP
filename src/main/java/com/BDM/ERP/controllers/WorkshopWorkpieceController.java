@@ -35,7 +35,7 @@ public class WorkshopWorkpieceController {
     }
 
     @PostMapping("/workshop/zagotovka/edit/{id}")
-    public String editPlan(@PathVariable Long id, WorkshopWorkpiece part){
+    public String editPart(@PathVariable Long id, WorkshopWorkpiece part){
         workpieceService.editPart(id, part);
         return "redirect:/workshop/zagotovka";
     }
@@ -49,6 +49,19 @@ public class WorkshopWorkpieceController {
     @PostMapping("/workshop/zagotovka/send-all/{id}")
     public String senAllPart(@PathVariable Long id) {
         workpieceService.sendAllToWorkshopProcessing(id);
+        return "redirect:/workshop/zagotovka";
+    }
+
+    @GetMapping("/workshop/zagotovka/send/{id}")
+    public String getPartForSend(@PathVariable Long id, Model model){
+        WorkshopWorkpiece part = workpieceService.getPartById(id);
+        model.addAttribute("part", part);
+        return "send-zagotovka";
+    }
+
+    @PostMapping("/workshop/zagotovka/send/{id}")
+    public String sendPart(@PathVariable Long id, Integer saw){
+        workpieceService.sendPartsToWorkshopProcessing(id, saw);
         return "redirect:/workshop/zagotovka";
     }
 

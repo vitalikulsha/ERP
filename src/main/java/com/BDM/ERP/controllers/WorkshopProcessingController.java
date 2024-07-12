@@ -1,6 +1,7 @@
 package com.BDM.ERP.controllers;
 
 import com.BDM.ERP.models.WorkshopProcessing;
+import com.BDM.ERP.models.WorkshopWorkpiece;
 import com.BDM.ERP.services.WorkshopProcessingService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -43,6 +44,21 @@ public class WorkshopProcessingController {
     @PostMapping("/workshop/mexobrabotka/create")
     public String createPartToProcessing(WorkshopProcessing part){
         processingService.addPartToWorkshopProcessing(part);
+        return "redirect:/workshop/mexobrabotka";
+    }
+
+    @GetMapping("/workshop/mexobrabotka/send/{id}")
+    public String getPartForSend(@PathVariable Long id, Model model){
+        WorkshopProcessing part = processingService.getPartById(id);
+        model.addAttribute("part", part);
+        return "send-mexobrabotka";
+    }
+
+    @PostMapping("/workshop/mexobrabotka/send/{id}")
+    public String sendPart(@PathVariable Long id, Model model, Integer quantity, String workshop){
+        model.addAttribute("quantity", quantity);
+        model.addAttribute("workshop", workshop);
+        processingService.sendPartsToNext(id, quantity, workshop);
         return "redirect:/workshop/mexobrabotka";
     }
 }

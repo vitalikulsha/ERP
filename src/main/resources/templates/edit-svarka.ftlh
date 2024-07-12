@@ -13,12 +13,12 @@
     <tr>
         <th>Номер детали</th>
         <th>Заявка</th>
-        <th>Сварка 1/th>
+        <th>Сварка 1</th>
         <th>Сварка 2</th>
         <th>Зачистка</th>
     </tr>
     <tr>
-        <form action="/workshop/mexobrabotka/edit/${part.id}" method="post">
+        <form action="/workshop/svarka/edit/${part.id}" method="post">
             <td>${part.partNumber}</td>
             <td>${part.input}</td>
             <td><input type="number" name="welding1" value="${part.welding1}"/></td>

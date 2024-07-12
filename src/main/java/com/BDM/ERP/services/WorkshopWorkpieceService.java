@@ -51,13 +51,17 @@ public class WorkshopWorkpieceService {
         workpieceRepository.deleteById(id);
     }
 
-    public void sendPartsToWorkshopProcessing(Long id, Integer quantity){
+    public void sendPartsToWorkshopProcessing(Long id, Integer quantity) {
         WorkshopWorkpiece workpiece = workpieceRepository.findById(id).orElse(null);
-        if(quantity == workpiece.getSaw()){
+        if (quantity > workpiece.getSaw()) {
+            return;
+        }
+        if (quantity == workpiece.getInput()) {
             sendAllToWorkshopProcessing(id);
             return;
         }
-        workpiece.setSaw(workpiece.getSaw()-quantity);
+        workpiece.setSaw(workpiece.getSaw() - quantity);
+        workpiece.setInput(workpiece.getInput() - quantity);
         WorkshopProcessing part = new WorkshopProcessing();
         part.setInput(quantity);
         part.setPartNumber(workpiece.getPartNumber());

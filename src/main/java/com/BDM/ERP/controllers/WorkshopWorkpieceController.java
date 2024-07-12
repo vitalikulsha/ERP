@@ -64,5 +64,4 @@ public class WorkshopWorkpieceController {
         workpieceService.sendPartsToWorkshopProcessing(id, saw);
         return "redirect:/workshop/zagotovka";
     }
-
 }

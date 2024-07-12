@@ -57,6 +57,7 @@
         <td><form action="/workshop/mexobrabotka/delete/${part.id}" method="post">
                 <input type="submit" value="Удалить "/>
             </form>
+            <a href="/workshop/mexobrabotka/send/${part.id}">Отправить детали</a><br>
             <a href="/workshop/mexobrabotka/edit/${part.id}">Редактировать</a>
         </td>
     </tr>
